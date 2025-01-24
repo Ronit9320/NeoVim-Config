@@ -12,7 +12,7 @@ return {
             highlight = "Directory",
             text_align = "left",
             separator = true,
-            padding = 0.9,
+            padding = 0.95,
           } },
           -- Other bufferline options
           show_buffer_close_icons = true,
