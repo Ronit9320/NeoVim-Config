@@ -30,7 +30,7 @@ return {
 		}
 
 		-- Set footer
-		dashboard.section.footer.val = "Happy Coding!"
+		dashboard.section.footer.val = "Onwards and Upwards!"
 
 		-- Apply the dashboard configuration
 		alpha.setup(dashboard.opts)
