@@ -20,8 +20,14 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.clangd.setup({})
 
+			-- Set up common key mappings for LSP features
+			-- Hover documentation
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+
+			-- Go-to-definition mapping
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+
+			-- Code actions
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
