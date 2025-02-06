@@ -6,7 +6,7 @@ This is my custom Neovim configuration, designed to enhance productivity and str
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Ronit9320/nvim-config.git ~/.config/nvim
+   git clone https://github.com/Ronit9320/NeoVim-Config.git ~/.config/nvim
    ```
 
 2. **Install dependencies**:
