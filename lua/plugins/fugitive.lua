@@ -9,7 +9,7 @@ return {
     map("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true })
     map("n", "<leader>gb", ":Git blame<CR>", { noremap = true, silent = true })
     map("n", "<leader>gp", ":Git push<CR>", { noremap = true, silent = true })
-    map("n", "<leader>gf", ":Git fetch<CR>", { noremap = true, silent = true })
+    map("n", "<leader>gfe", ":Git fetch<CR>", { noremap = true, silent = true })
     map("n", "<leader>gg", ":Git log<CR>", { noremap = true, silent = true })
     map("n", "<leader>gco", ":Git checkout<CR>", { noremap = true, silent = true })
     map("n", "<leader>gm", ":Git merge<CR>", { noremap = true, silent = true })

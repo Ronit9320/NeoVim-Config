@@ -23,6 +23,6 @@ return {
       ":Neotree toggle<CR>",
       { noremap = true, silent = true, desc = "Toggle Neo-tree" }
     )
-    vim.keymap.set("n", "<leader>q", ":Neotree focus<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>r", ":Neotree focus<CR>", { noremap = true, silent = true })
   end,
 }
