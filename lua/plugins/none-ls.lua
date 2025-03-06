@@ -7,24 +7,23 @@ return {
     config = function()
       local null_ls = require("null-ls")
 
-      -- Create an augroup for formatting
       local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 
-      -- Register sources
       null_ls.setup({
-        debug = true, -- Enable debug logging
+        debug = true,
         sources = {
           -- Diagnostics
           null_ls.builtins.diagnostics.cppcheck,
           null_ls.builtins.diagnostics.cmake_lint,
           null_ls.builtins.diagnostics.markdownlint,
-          null_ls.builtins.diagnostics.pylint,
+          null_ls.builtins.diagnostics.flake8,
           -- Formatters
           null_ls.builtins.formatting.clang_format,
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.black,
         },
-        -- Automatically format on save
+
+        -- Auto-format on save
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -32,31 +31,50 @@ return {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                vim.lsp.buf.format({ bufnr = bufnr })
+                vim.lsp.buf.format({ bufnr = bufnr, async = false }) -- Force sync formatting
               end,
             })
           end
         end,
       })
 
-      -- Key mapping to format the current buffer on demand
+      -- Keymap for manual formatting
       vim.keymap.set("n", "<leader>gf", function()
-        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), async = true })
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), async = false })
       end, { desc = "Format Buffer" })
     end,
   },
 
-  -- Ensure that the following tools are installed via Mason
+  -- Mason ensures tools are installed
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "cpplint",
+        "cppcheck",
         "clang-format",
         "prettier",
         "black",
-        "pylint",
+        "flake8",
       },
+
     },
+  },
+
+  -- Mason integration for none-ls
+  {
+    "jay-babu/mason-null-ls.nvim",
+    dependencies = { "williamboman/mason.nvim", "nvimtools/none-ls.nvim" },
+    config = function()
+      require("mason-null-ls").setup({
+        ensure_installed = {
+          "cppcheck",
+          "clang-format",
+          "prettier",
+          "black",
+          "flake8",
+        },
+        automatic_setup = true,
+      })
+    end,
   },
 }

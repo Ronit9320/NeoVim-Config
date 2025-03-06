@@ -16,7 +16,7 @@ return {
           "ast_grep",
           "cmake",
           "html",
-          "marksman",           -- for markdown
+          "marksman", -- for markdown
         },
       })
     end,
@@ -26,22 +26,14 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
-      -- Lua
       lspconfig.lua_ls.setup({})
-
-      -- C/C++
-      lspconfig.clangd.setup({})
-
-      -- Python
+      lspconfig.clangd.setup({
+        cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=never", "--completion-style=detailed" },
+        filetypes = { "c", "cpp", "objc", "objcpp" },
+        root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+      })
       lspconfig.pylsp.setup({})
-
-      -- HTML
-      lspconfig.html.setup({})
-
-      -- CMake
       lspconfig.cmake.setup({})
-
-      -- Markdown
       lspconfig.marksman.setup({})
 
       -- Common LSP keybindings
