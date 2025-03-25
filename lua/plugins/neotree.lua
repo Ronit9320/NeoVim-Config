@@ -16,7 +16,6 @@ return {
       },
     })
 
-    -- Keybinding to toggle Neo-tree
     vim.keymap.set(
       "n",
       "<leader>e",
