@@ -26,7 +26,31 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
-      lspconfig.lua_ls.setup({})
+      -- Lua LSP with LÖVE2D support
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT", -- LÖVE2D uses LuaJIT
+            },
+            diagnostics = {
+              globals = { "love" }, -- Recognize 'love' as a global
+            },
+            workspace = {
+              library = {
+                vim.env.HOME .. "/.local/share/love2d-api", -- Path to your cloned love-api
+                "${3rd}/love2d/library",                  -- Built-in lua_ls LÖVE2D support
+              },
+              checkThirdParty = false,                    -- Avoid third-party prompts
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
+
+      -- Other LSP setups
       lspconfig.clangd.setup({
         cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=never", "--completion-style=detailed" },
         filetypes = { "c", "cpp", "objc", "objcpp" },
@@ -52,7 +76,6 @@ return {
           border = "rounded",
         }
       )
-
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
         vim.lsp.handlers.signature_help, {
           border = "rounded",
