@@ -1,5 +1,6 @@
 require("config.lazy")
 require("config.lualine")
+require("config.lua_ls")
 
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
