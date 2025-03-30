@@ -5,7 +5,7 @@ return {
 
     -- Normal mode mappings
     map("n", "<leader>gs", ":Git<CR>", { noremap = true, silent = true })
-    map("n", "<leader>gd", ":Git diff<CR>", { noremap = true, silent = true })
+    map("n", "<leader>di", ":Git diff<CR>", { noremap = true, silent = true })
     map("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true })
     map("n", "<leader>gb", ":Git blame<CR>", { noremap = true, silent = true })
     map("n", "<leader>gp", ":Git push<CR>", { noremap = true, silent = true })

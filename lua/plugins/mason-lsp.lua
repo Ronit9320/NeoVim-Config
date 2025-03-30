@@ -63,7 +63,7 @@ return {
 
       -- Common LSP keybindings
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
-      vim.keymap.set("n", "G", vim.lsp.buf.definition, { desc = "Go to definition" })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Show references" })
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
       vim.keymap.set("n", "<leader>n", vim.lsp.buf.rename, { desc = "Rename symbol" })
