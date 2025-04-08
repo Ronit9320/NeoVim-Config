@@ -15,9 +15,11 @@ vim.keymap.set("n", "<leader>wt", ":w<CR>", { noremap = true, silent = true, des
 vim.keymap.set("n", "<leader>qu", ":q<CR>", { noremap = true, silent = true, desc = "Close current window" })
 vim.keymap.set("n", "<leader>qf", ":q!<CR>", { noremap = true, silent = true, desc = "Close current window wihout changes" })
 
+
 vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.cindent = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+
