@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true, silent = true, de
 vim.keymap.set("n", "<leader>wt", ":w<CR>", { noremap = true, silent = true, desc = "Save current window" })
 vim.keymap.set("n", "<leader>qu", ":q<CR>", { noremap = true, silent = true, desc = "Close current window" })
 vim.keymap.set("n", "<leader>qf", ":q!<CR>", { noremap = true, silent = true, desc = "Close current window wihout changes" })
-
+vim.keymap.set("v", "<leader>cp", '"+y', {noremap = true, silent = true, desc = "copy to clipboard"})
 
 vim.o.autoindent = true
 vim.o.smartindent = true
@@ -22,4 +22,3 @@ vim.o.cindent = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-
