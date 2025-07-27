@@ -39,9 +39,9 @@ return {
             workspace = {
               library = {
                 vim.env.HOME .. "/.local/share/love2d-api", -- Path to your cloned love-api
-                "${3rd}/love2d/library",                  -- Built-in lua_ls LÖVE2D support
+                "${3rd}/love2d/library",                    -- Built-in lua_ls LÖVE2D support
               },
-              checkThirdParty = false,                    -- Avoid third-party prompts
+              checkThirdParty = false,                      -- Avoid third-party prompts
             },
             telemetry = {
               enable = false,
@@ -59,7 +59,6 @@ return {
       lspconfig.pylsp.setup({})
       lspconfig.cmake.setup({})
       lspconfig.marksman.setup({})
-      lspconfig.cmake.setup({})
 
       -- Common LSP keybindings
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
