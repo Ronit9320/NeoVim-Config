@@ -16,7 +16,13 @@ return {
           "ast_grep",
           "cmake",
           "html",
-          "marksman", -- for markdown
+          "marksman",
+          "ts_ls",
+          "cssls",
+          "jsonls",
+          "eslint",
+          "emmet_ls",
+          "tailwindcss",
         },
       })
     end,
@@ -26,22 +32,22 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
-      -- Lua LSP with LÖVE2D support
+
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
             runtime = {
-              version = "LuaJIT", -- LÖVE2D uses LuaJIT
+              version = "LuaJIT",
             },
             diagnostics = {
-              globals = { "love" }, -- Recognize 'love' as a global
+              globals = { "love" },
             },
             workspace = {
               library = {
-                vim.env.HOME .. "/.local/share/love2d-api", -- Path to your cloned love-api
-                "${3rd}/love2d/library",                    -- Built-in lua_ls LÖVE2D support
+                vim.env.HOME .. "/.local/share/love2d-api",
+                "${3rd}/love2d/library",
               },
-              checkThirdParty = false,                      -- Avoid third-party prompts
+              checkThirdParty = false,
             },
             telemetry = {
               enable = false,
@@ -50,7 +56,7 @@ return {
         },
       })
 
-      -- Other LSP setups
+
       lspconfig.clangd.setup({
         cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=never", "--completion-style=detailed" },
         filetypes = { "c", "cpp", "objc", "objcpp" },
@@ -60,7 +66,22 @@ return {
       lspconfig.cmake.setup({})
       lspconfig.marksman.setup({})
 
-      -- Common LSP keybindings
+
+      lspconfig.ts_ls.setup({})
+      lspconfig.html.setup({})
+      lspconfig.cssls.setup({})
+      lspconfig.jsonls.setup({})
+      lspconfig.eslint.setup({})
+
+
+      lspconfig.emmet_ls.setup({
+        filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact" }
+      })
+
+
+      lspconfig.tailwindcss.setup({})
+
+
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Show references" })
@@ -70,7 +91,7 @@ return {
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
-      -- LSP handlers configuration
+
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         vim.lsp.handlers.hover, {
           border = "rounded",
