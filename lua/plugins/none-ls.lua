@@ -14,10 +14,8 @@ return {
         sources = {
           -- Diagnostics
           null_ls.builtins.diagnostics.cppcheck,
-          null_ls.builtins.diagnostics.cmake_lint,
           null_ls.builtins.diagnostics.markdownlint,
-          -- null_ls.builtins.diagnostics.flake8,
-          -- Formatters
+
           null_ls.builtins.formatting.clang_format,
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.black,
@@ -50,7 +48,6 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "cppcheck",
         "clang-format",
         "prettier",
         "black",
@@ -67,7 +64,6 @@ return {
     config = function()
       require("mason-null-ls").setup({
         ensure_installed = {
-          "cppcheck",
           "clang-format",
           "prettier",
           "black",
