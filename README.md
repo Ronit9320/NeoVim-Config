@@ -1,10 +1,11 @@
-# Neovim Configuration
+# Neovim Config
 
 This is my custom Neovim configuration, designed to enhance productivity and streamline development with modern tools and features.
 
 ## Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/Ronit9320/NeoVim-Config.git ~/.config/nvim
    ```
@@ -45,5 +46,3 @@ Feel free to tweak the configuration files in `~/.config/nvim/lua/` to suit your
 ## Credits
 
 Inspired by various Neovim setups and community plugins.
-
-
