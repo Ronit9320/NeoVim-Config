@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true, silent = true, desc = "Save and Close current window" })
 vim.keymap.set("n", "<leader>wt", ":w<CR>", { noremap = true, silent = true, desc = "Save current window" })
 vim.keymap.set("n", "<leader>qu", ":q<CR>", { noremap = true, silent = true, desc = "Close current window" })
-vim.keymap.set("n", "<leader>qf", ":q!<CR>", { noremap = true, silent = true, desc = "Close current window wihout changes" })
+vim.keymap.set("n", "<leader>qf", ":q!<CR>", { noremap = true, silent = true, desc = "Close current window without changes" })
 vim.keymap.set("v", "<leader>cp", '"+y', {noremap = true, silent = true, desc = "copy to clipboard"})
 
 vim.o.autoindent = true
